@@ -1,9 +1,3 @@
-# CLASS 06 
-
-# GITHUB : STEP 13 https://github.com/panaversity/learn-agentic-ai/tree/main/01_ai_agents_first/13_guardrails
-
-# OFFICAL DOCS : https://openai.github.io/openai-agents-python/guardrails/
-
 # GUARDRAILS :
 
 # THERE ARE 2 TYPES OF GUARDRAILS
@@ -45,7 +39,3 @@ result = Runner.run_sync(simple_agent , "Hi how are you?" , run_config= config)
 print("\n 🎀 Final output:", result.final_output)
 #print(result.final_output)
 
-
-# Note : To call the input guardrail function u must add decorator @input_guardrail in the starting of function
-
-# HOMEWORK : OUTPUT GUARDRAILS
