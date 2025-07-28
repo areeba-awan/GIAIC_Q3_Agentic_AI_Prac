@@ -1,19 +1,4 @@
-# CLASS 06 
-
-# EXAM KI PREPARTION KA BTAYA 50 MCQS 50 MINUTES LEVEL 1
-
-# NEW TOPICS :
-
-# STREAMING 
-# GUARDRILS 
-# TRACING 
-
-# # GITHUB REPO PANAVERSITY : STEP 07 STREAMING 
-# https://github.com/panaversity/learn-agentic-ai/tree/main/01_ai_agents_first/07_streaming
-
-# https://openai.github.io/openai-agents-python/streaming/
-
-# STREAMING : llm k through chunk by chunk data provide krna
+# STREAMING : 
 
 # Streaming lets you subscribe to updates of the agent run as it proceeds.
 # This can be useful for showing the end-user progress updates and partial responses.
@@ -21,40 +6,37 @@
 # METHOD 
 # Runner.run_streamed()
 
-# EVENT : => An action perform by an Agent (koi b action perform hona)
+# EVENT IN STREAMING : => An action perform by an Agent (koi b action perform hona)
 
 # THERE ARE 3 TYPES OF EVENTS IN STREAMING 
 
-# 1 RAW RESPONSE EVENT : => RAW Response event LLM KA JO B DATA HOTA HAI WO DETA HAI
-#  
+# 1 RAW RESPONSE EVENT 
 # 2 RUN ITEM STREM EVENT :
-
 # 3 AGENT UPDATED STREAM EVENT :
-
 
 # SYNTAX 1 (RAW RESPONSE EVENT)
 
-# import asyncio
-# from openai.types.responses import ResponseTextDeltaEvent
-# from agents import Agent, Runner
-# from  my_config  import config
+import asyncio
+from openai.types.responses import ResponseTextDeltaEvent
+from agents import Agent, Runner
+from  my_config  import config
 
-# async def main():
-#     agent = Agent(
-#         name="Joker",
-#         instructions="You are a helpful assistant.",
-#     )
+async def main():
+    agent = Agent(
+        name="Joker",
+        instructions="You are a helpful assistant.",
+    )
 
-#     result = Runner.run_streamed(agent, input="Please tell me 5 jokes.",run_config = config)
-#     async for event in result.stream_events():
-#         if event.type == "raw_response_event" and isinstance (event.data,ResponseTextDeltaEvent):
-#         #  print ("\n[Event Type]", event)
-#         #  print(event)
-#         #  print("event>>>>>>",event) # -> firstly event ki type raw response event honi chaiye
-#           print(event.data.delta, end = "",flush=True) # flush means immediately response
+    result = Runner.run_streamed(agent, input="Please tell me 5 jokes.",run_config = config)
+    async for event in result.stream_events():
+        if event.type == "raw_response_event" and isinstance (event.data,ResponseTextDeltaEvent):
+        #  print ("\n[Event Type]", event)
+        #  print(event)
+        #  print("event>>>>>>",event) 
+          print(event.data.delta, end = "",flush=True) # flush means immediately response
 
-# if __name__ == "__main__":
-#     asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
 
 # EXAMPLE 2 
 
@@ -101,17 +83,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# HOMEWORK : OUTPUT GUARDRAILS OR GUARDRAILS KA PAGE PRH KR OR CODE KO IMPLEMENT KRNA HAI 
-#https://openai.github.io/openai-agents-python/guardrails/
-
-
-
-
-
-
-
-
-
-
-
